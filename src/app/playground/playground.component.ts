@@ -2,9 +2,9 @@ import {
   Component,
   OnInit,
   ContentChild,
-  AfterContentInit
+  AfterContentInit,
+  ElementRef
 } from '@angular/core';
-import { PersonComponent } from '../person/person.component';
 
 @Component({
   selector: 'app-playground',
@@ -12,19 +12,14 @@ import { PersonComponent } from '../person/person.component';
   styleUrls: ['./playground.component.css']
 })
 export class PlaygroundComponent implements OnInit, AfterContentInit {
-  @ContentChild(PersonComponent, { static: true }) person: PersonComponent;
+  @ContentChild('h2', { static: true }) header: ElementRef;
 
-  constructor() {
-    console.log('constructor', this.person);
-  }
+  constructor() {}
 
-  ngOnInit() {
-    //  available only if {static: true}
-    console.log('ngOnInit', this.person);
-  }
+  ngOnInit() {}
 
   ngAfterContentInit(): void {
-    //  correct way
-    console.log('ngAfterContentInit', this.person);
+    //  cannot query. undefined.
+    console.log('ngAfterContentInit', this.header);
   }
 }
