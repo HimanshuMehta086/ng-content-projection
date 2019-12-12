@@ -1,4 +1,10 @@
-import { Component, OnInit, ContentChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ContentChild,
+  ContentChildren,
+  QueryList
+} from '@angular/core';
 import { PersonComponent } from '../person/person.component';
 
 @Component({
@@ -7,10 +13,10 @@ import { PersonComponent } from '../person/person.component';
   styleUrls: ['./playground.component.css']
 })
 export class PlaygroundComponent implements OnInit {
-  @ContentChild(PersonComponent, { static: true }) set person(
-    comp: PersonComponent
+  @ContentChildren(PersonComponent) set person(
+    comp: QueryList<PersonComponent>
   ) {
-    console.log('Person Component', comp);
+    console.log('Person Components', comp);
   }
 
   constructor() {}
