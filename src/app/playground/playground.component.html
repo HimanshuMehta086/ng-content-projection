@@ -1,4 +1,16 @@
 <h2>Learning Content Projection</h2>
 
-<!-- This will be replaced by all the content projected -->
-<ng-content></ng-content>
+<hr />
+
+<!-- When select is used, order in the projected content doesn't matter -->
+<!-- By tag or selector -->
+<ng-content select="p"></ng-content>
+
+<hr />
+
+<ng-content select="h3"></ng-content>
+
+<hr />
+
+<!-- By css class -->
+<ng-content select=".alert"></ng-content>
