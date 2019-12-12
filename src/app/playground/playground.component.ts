@@ -12,6 +12,10 @@ import {
   styleUrls: ['./playground.component.css']
 })
 export class PlaygroundComponent implements OnInit, AfterContentInit {
+  //  It is now possible because, AppComponent declared
+  //  template variable for the DOM element
+  //  @ContentChild can now query it with the
+  //  exact variable(declared in the AppComponent)
   @ContentChild('header', { static: true }) header: ElementRef;
 
   constructor() {}
