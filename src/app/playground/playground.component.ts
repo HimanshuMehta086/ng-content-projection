@@ -12,14 +12,14 @@ import {
   styleUrls: ['./playground.component.css']
 })
 export class PlaygroundComponent implements OnInit, AfterContentInit {
-  @ContentChild('h2', { static: true }) header: ElementRef;
+  @ContentChild('header', { static: true }) header: ElementRef;
 
   constructor() {}
 
   ngOnInit() {}
 
   ngAfterContentInit(): void {
-    //  cannot query. undefined.
+    //  allowed since the parent defined template variable.
     console.log('ngAfterContentInit', this.header);
   }
 }
