@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ContentChild } from '@angular/core';
+import { PersonComponent } from '../person/person.component';
 
 @Component({
   selector: 'app-playground',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./playground.component.css']
 })
 export class PlaygroundComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  @ContentChild(PersonComponent, { static: true }) set person(
+    comp: PersonComponent
+  ) {
+    console.log('Person Component', comp);
   }
 
+  constructor() {}
+
+  ngOnInit() {}
 }
